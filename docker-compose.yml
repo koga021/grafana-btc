@@ -22,6 +22,7 @@ services:
       - elasticsearch:elasticsearch
       - grafana:grafana
       - kibana:kibana
+      - app:app
 
   grafana:
      image: grafana/grafana
@@ -35,6 +36,7 @@ services:
       - elasticsearch:elasticsearch
       - grafana:grafana
       - kibana:kibana
+      - app:app
 
   kibana:
     image: kibana:7.6.2
@@ -48,6 +50,18 @@ services:
       - elasticsearch:elasticsearch
       - grafana:grafana
       - kibana:kibana
+      - app:app
+
+  app:
+    build: .
+    container_name: app
+    networks: 
+      - grafanabtc
+    external_links:
+      - elasticsearch:elasticsearch
+      - grafana:grafana
+      - kibana:kibana
+      - app:app
 
 
 volumes:

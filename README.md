@@ -11,6 +11,10 @@ docker-compose down
 ## Criando Indice
 curl -XPUT http://localhost:9200/btc
 
+## Apagando Indice
+curl -X DELETE "localhost:9200/btc?pretty"
+
+
 ## Listando indices
 curl http://localhost:9200/_aliases?pretty=true
 
@@ -35,4 +39,4 @@ curl -X GET "localhost:9200/grafanabtc/_doc/?pretty"
 
 # JSON
 
-{"valor_venda":8.540, "valor_compra":7.000, "date_time":"2020-04-26 17:44"}
+{"valor_venda":8.540, "valor_compra":7.000, "date_time":"1587939637"}
